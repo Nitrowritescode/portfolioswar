@@ -4,7 +4,7 @@ import React from 'react';
 export default function Projects() {
   return (
     <div className='px-10 md:px-16'>
-      <h1 className="text-purple-500 text-2xl md:text-4xl font-bold flex justify-center items-center py-4">My Projects</h1>
+      <h1 className="text-purple-500 text-2xl md:text-4xl font-bold flex justify-center items-center py-4 ">My Projects</h1>
       <section className="projects-container bg-purple-400 p-4">
     {/* Project Card 1 */}
     <div className="p-4">
