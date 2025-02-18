@@ -1,90 +1,69 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
+import Link from "next/link"
 
 const projects = [
   {
     id: 1,
     name: "Stories On Tips",
     description:
-      "Next.js 15 application built with TypeScript, Next UI, Firebase Storage for image storage, and the Replicate API, enabling users to generate and store AI-powered stories. The app features a sleek and responsive UI, allowing users to input prompts and receive unique narratives instantly. Firebase Storage ensures secure saving and retrieval of images and neon as the primary database, making it a powerful and seamless storytelling tool. 🚀",
+      "Next.js 15 application built with TypeScript, Next UI, Firebase Storage for image storage, and the Replicate API, enabling users to generate and store AI-powered stories.",
     image: "/stories.png",
     link: "https://www.storiesontips.com",
+    tags: ["Next.js 15", "TypeScript", "Firebase", "Clerk", "Replicate API"],
   },
   {
     id: 2,
     name: "My Invoice Checker",
     description:
-      "Next.js 15 application built with TypeScript, Auth.js, Prisma ORM, and Neon as the database, providing a seamless and secure way to manage invoices. It features authentication with Auth.js, ensuring secure access control, while Prisma ORM simplifies database interactions with Neon. The app's sleek and responsive UI, styled with Tailwind CSS, offers an intuitive experience for users to create, manage, and track invoices efficiently. 🚀",
+      "Next.js 15 application built with TypeScript, Auth.js, Prisma ORM, and Neon as the database, providing a seamless and secure way to manage invoices.",
     image: "/invoice.png",
     link: "https://www.myinvoicechecker.com",
+    tags: ["Next.js 15", "TypeScript", "Auth.js", "Prisma", "Neon"],
   },
-];
+]
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
-    // my apps
-
-    <div className="p-6 min-h-screen text-white">
-      <h1 className="text-3xl md:text-4xl text-purple-500 text-center font-bold mb-6">
-        My Apps 💻
-      </h1>
-      <div className="grid grid-cols-1 gap-6">
-        {projects.map((project, index) => (
-          <Card
-            key={project.id}
-            className="bg-purple-400 p-4 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-4"
-          >
-            {index % 2 === 0 ? (
-              <>
+    <div className="container mx-auto py-12">
+      <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.map((project) => (
+          <Card key={project.id} className="flex flex-col h-full">
+            <CardHeader>
+              <CardTitle>{project.name}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <div className="aspect-video relative mb-4">
                 <Image
-                  src={project.image}
+                  src={project.image || "/placeholder.svg"}
                   alt={project.name}
-                  className="w-1/3 rounded-lg"
-                  width={600}
-                  height={500}
+                  fill
+                  className="object-cover rounded-md"
                 />
-                <CardContent className="flex-1">
-                  <h2 className="text-xl font-semibold">{project.name}</h2>
-                  <p className="text-foreground mb-2">{project.description}</p>
-                  <a
-                    href={project.link}
-                    className="text-blue-400 hover:underline"
-                  >
-                    {" "}
-                    <Button>View Project</Button>
-                  </a>
-                </CardContent>
-              </>
-            ) : (
-              <>
-                <CardContent className="flex-1 text-right">
-                  <h2 className="text-xl font-semibold">{project.name}</h2>
-                  <p className="text-foreground mb-2">{project.description}</p>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="text-blue-400 hover:underline"
-                  >
-                    <Button>View Project</Button>
-                  </a>
-                </CardContent>
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  className="w-1/3 rounded-lg"
-                  width={600}
-                  height={500}
-                />
-              </>
-            )}
+              </div>
+              <p className="text-muted-foreground mb-4">{project.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full">
+                <Link href={project.link} target="_blank">
+                  View Project
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>
-
-      {/* apps that I have built for clients */}
-
-      <div>{/* here will be the code */}</div>
     </div>
-  );
+  )
 }
+
