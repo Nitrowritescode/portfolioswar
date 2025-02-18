@@ -10,7 +10,7 @@ const projects = [
     name: "Stories On Tips",
     description:
       "Next.js 15 application built with TypeScript, Next UI, Firebase Storage for image storage, and the Replicate API, enabling users to generate and store AI-powered stories.",
-    image: "/stories.png",
+    image: "/stories.PNG",
     link: "https://www.storiesontips.com",
     tags: ["Next.js 15", "TypeScript", "Firebase", "Clerk", "Replicate API"],
   },
@@ -19,7 +19,7 @@ const projects = [
     name: "My Invoice Checker",
     description:
       "Next.js 15 application built with TypeScript, Auth.js, Prisma ORM, and Neon as the database, providing a seamless and secure way to manage invoices.",
-    image: "/invoice.png",
+    image: "/invoice.PNG",
     link: "https://www.myinvoicechecker.com",
     tags: ["Next.js 15", "TypeScript", "Auth.js", "Prisma", "Neon"],
   },
@@ -27,7 +27,7 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-12 px-4">
       <h1 className="text-4xl font-bold text-center mb-12">My Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
