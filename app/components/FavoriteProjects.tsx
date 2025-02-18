@@ -1,44 +1,90 @@
-import { Button } from '@/components/ui/button';
-import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+
+const projects = [
+  {
+    id: 1,
+    name: "Stories On Tips",
+    description:
+      "Next.js 15 application built with TypeScript, Next UI, Firebase Storage for image storage, and the Replicate API, enabling users to generate and store AI-powered stories. The app features a sleek and responsive UI, allowing users to input prompts and receive unique narratives instantly. Firebase Storage ensures secure saving and retrieval of images and neon as the primary database, making it a powerful and seamless storytelling tool. 🚀",
+    image: "/stories.png",
+    link: "https://www.storiesontips.com",
+  },
+  {
+    id: 2,
+    name: "My Invoice Checker",
+    description:
+      "Next.js 15 application built with TypeScript, Auth.js, Prisma ORM, and Neon as the database, providing a seamless and secure way to manage invoices. It features authentication with Auth.js, ensuring secure access control, while Prisma ORM simplifies database interactions with Neon. The app's sleek and responsive UI, styled with Tailwind CSS, offers an intuitive experience for users to create, manage, and track invoices efficiently. 🚀",
+    image: "/invoice.png",
+    link: "https://www.myinvoicechecker.com",
+  },
+];
 
 export default function Projects() {
   return (
-    <div className='px-10 md:px-16'>
-      <h1 className="text-purple-500 text-2xl md:text-4xl font-bold flex justify-center items-center py-4 ">My Projects</h1>
-      <section className="projects-container bg-purple-400 p-4">
-    {/* Project Card 1 */}
-    <div className="p-4">
-      {/* <img src="/images/project1.jpg" alt="Screenshot of Project 1" /> */}
-      <h3 className='font-bold text-2xl md:text-3xl'>Stories On Tips</h3>
-      <p className='py-2 '>
-      Full stack story generator production grade SaaS application using Next JS 15, React 19 and Typescript, including optimistic UI updates.
-      </p>
-      <a href="https://storiesontips.com" target="_blank" rel="noopener noreferrer">
-     <Button>
-  View Project
-      </Button> 
-</a>
+    // my apps
+
+    <div className="p-6 min-h-screen text-white">
+      <h1 className="text-3xl md:text-4xl text-purple-500 text-center font-bold mb-6">
+        My Apps 💻
+      </h1>
+      <div className="grid grid-cols-1 gap-6">
+        {projects.map((project, index) => (
+          <Card
+            key={project.id}
+            className="bg-purple-400 p-4 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-4"
+          >
+            {index % 2 === 0 ? (
+              <>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  className="w-1/3 rounded-lg"
+                  width={600}
+                  height={500}
+                />
+                <CardContent className="flex-1">
+                  <h2 className="text-xl font-semibold">{project.name}</h2>
+                  <p className="text-foreground mb-2">{project.description}</p>
+                  <a
+                    href={project.link}
+                    className="text-blue-400 hover:underline"
+                  >
+                    {" "}
+                    <Button>View Project</Button>
+                  </a>
+                </CardContent>
+              </>
+            ) : (
+              <>
+                <CardContent className="flex-1 text-right">
+                  <h2 className="text-xl font-semibold">{project.name}</h2>
+                  <p className="text-foreground mb-2">{project.description}</p>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    className="text-blue-400 hover:underline"
+                  >
+                    <Button>View Project</Button>
+                  </a>
+                </CardContent>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  className="w-1/3 rounded-lg"
+                  width={600}
+                  height={500}
+                />
+              </>
+            )}
+          </Card>
+        ))}
+      </div>
+
+      {/* apps that I have built for clients */}
+
+      <div>{/* here will be the code */}</div>
     </div>
-    
-    {/* Project Card 2 */}
-    <div className="p-4">
-      {/* <img src="/images/project2.jpg" alt="Screenshot of Project 2" /> */}
-      <h3 className='font-bold text-2xl md:text-3xl'>My Invoice Checker</h3>
-      <p className='py-2'>
-        Full Stack Invoice Management App for small businesses using Next JS 15, React 19 and Typescript
-      </p>
-      <a href="https://myinvoicechecker.com" target="_blank" rel="noopener noreferrer">
-      <Button>
-  View Project
-      </Button> 
-</a>
-    </div>
-    
-    {/* Project Card 3 */}
- 
-    
-    {/* Add more project cards as needed */}
-  </section>
-    </div>
-  )
+  );
 }

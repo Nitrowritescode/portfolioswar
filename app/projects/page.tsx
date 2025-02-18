@@ -3,9 +3,9 @@ import Projects from '../components/FavoriteProjects'
 
 function page() {
   return (
-    <div>
+    <section>
      <Projects/>
-    </div>
+    </section>
   )
 }
 
