@@ -10,7 +10,7 @@ const projects = [
     name: "Stories On Tips",
     description:
       "Next.js 15 application built with TypeScript, Next UI, Firebase Storage for image storage, and the Replicate API, enabling users to generate and store AI-powered stories.",
-    image: "/stories.PNG",
+    image: "/stories.JPG",
     link: "https://www.storiesontips.com",
     tags: ["Next.js 15", "TypeScript", "Firebase", "Clerk", "Replicate API"],
   },
