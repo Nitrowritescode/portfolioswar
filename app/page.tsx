@@ -2,6 +2,7 @@ import { AboutSection } from "./components/AboutSection";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { SectionTwo } from "./components/SectionTwo";
+import Skills from "./components/Skills";
 
 
 
@@ -11,6 +12,7 @@ export default function Home() {
     <Hero />
     <SectionTwo />
     <AboutSection />
+    <Skills/>
     <Footer />
   </div>
   );
