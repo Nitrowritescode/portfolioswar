@@ -25,6 +25,7 @@ export default function SkillsSection() {
     { name: "Vercel", category: "Tools and Technologies" },
     { name: "CI/CD", category: "Tools and Technologies" },
     { name: "Supabase", category: "Tools and Technologies" },
+    { name: "Docker", category: "Tools and Technologies" },
   ]
 
   // Group skills by category
