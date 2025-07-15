@@ -1,8 +1,8 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 
 interface Skill {
-  name: string
-  category: string
+  name: string;
+  category: string;
 }
 
 export default function SkillsSection() {
@@ -24,27 +24,26 @@ export default function SkillsSection() {
     { name: "Git", category: "Tools and Technologies" },
     { name: "Vercel", category: "Tools and Technologies" },
     { name: "CI/CD", category: "Tools and Technologies" },
-    { name: "Supabase", category: "Tools and Technologies" }
-  ]
+    { name: "AWS", category: "Tools and Technologies" },
+  ];
 
   // Group skills by category
-  const categories = skills.reduce(
-    (acc, skill) => {
-      if (!acc[skill.category]) {
-        acc[skill.category] = []
-      }
-      acc[skill.category].push(skill)
-      return acc
-    },
-    {} as Record<string, Skill[]>,
-  )
+  const categories = skills.reduce((acc, skill) => {
+    if (!acc[skill.category]) {
+      acc[skill.category] = [];
+    }
+    acc[skill.category].push(skill);
+    return acc;
+  }, {} as Record<string, Skill[]>);
 
   return (
     <section className="py-12 px-4 md:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight mb-2">Skills</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Technical expertise and capabilities</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Technical expertise and capabilities
+          </p>
         </div>
 
         <div className="grid gap-8">
@@ -55,7 +54,9 @@ export default function SkillsSection() {
                 {categorySkills.map((skill) => (
                   <Card key={skill.name} className="border-0 shadow-sm">
                     <CardContent className="flex items-center justify-center p-4 h-full">
-                      <span className="font-medium text-center">{skill.name}</span>
+                      <span className="font-medium text-center">
+                        {skill.name}
+                      </span>
                     </CardContent>
                   </Card>
                 ))}
@@ -65,6 +66,5 @@ export default function SkillsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

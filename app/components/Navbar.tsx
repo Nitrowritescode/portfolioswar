@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MobileMenu } from "./MobileMenu";
+import { ModeToggle } from "@/components/theme-toggle";
 
 export const navigationItems = [
   {
@@ -58,6 +59,9 @@ export function Navbar() {
         <Button className="hidden sm:flex" asChild>
           <a href="mailto:swar21769@gmail.com">Contact Me</a>
         </Button>
+        <div className="px-2 md:px-4 flex items-center">
+          <ModeToggle />
+        </div>
         <div className="sm:hidden">
           <MobileMenu />
         </div>
